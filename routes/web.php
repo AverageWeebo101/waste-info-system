@@ -3,8 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WasteController;
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +16,7 @@ use App\Http\Controllers\WasteController;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('home');;
+})->name('home');
 
 Route::middleware([
     'auth:sanctum',
@@ -29,14 +27,19 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-Route::get('/wastes', [WasteController::class, 'index'])->name('waste.index');
-Route::get('/wastes/create', [WasteController::class, 'create'])->name('waste.create');
-Route::post('/wastes', [WasteController::class, 'store'])->name('waste.store');
-Route::get('/wastes/{id}', [WasteController::class, 'show'])->name('waste.show');
-Route::get('/wastes/{id}/edit', [WasteController::class, 'edit'])->name('waste.edit');
-Route::put('/wastes/{id}', [WasteController::class, 'update'])->name('waste.update');
-Route::delete('/wastes/{id}', [WasteController::class, 'destroy'])->name('waste.destroy');
 
-Route::resource('waste.index', WasteController::class);
+Route::get('/wastes', [WasteController::class, 'index'])->name('wastes.index');
+Route::get('/wastes/create', [WasteController::class, 'create'])->name('wastes.create');
+Route::resource('wastes', WasteController::class);
+Route::delete('/wastes/delete-selected', [WasteController::class, 'deleteSelected'])->name('wastes.deleteSelected');
 
 
+    // Use Route::resource for standard CRUD routes
+    // Route::resource('wastes', WasteController::class);
+
+    // Route::get('/wastes/create', [WasteController::class, 'create'])->name('wastes.create');
+
+    // Additional route for deleting selected records
+    //Route::delete('/wastes/delete-selected', [WasteController::class, 'deleteSelected'])->name('wastes.deleteSelected');
+
+?>

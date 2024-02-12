@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+        
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <script src="https://code.jquery.com/j  query-3.6.0.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -16,6 +20,8 @@
 
         <!-- Styles -->
         @livewireStyles
+
+        
     </head>
     <body class="font-sans antialiased">
         <x-banner />
@@ -31,10 +37,10 @@
                     </div>
                 </header>
             @endif
-
+            
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                 @yield('content')
             </main>
         </div>
 
