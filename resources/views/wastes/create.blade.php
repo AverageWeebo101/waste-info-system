@@ -112,5 +112,8 @@
         <!-- Add more fields as needed -->
 
         <button type="submit" class="btn btn-primary">Create Waste Record</button>
+    
     </form>
+    
+    <a href="{{ route('wastes.index') }}" class="btn btn-secondary mt-3">Back to Waste Records</a>
 @endsection

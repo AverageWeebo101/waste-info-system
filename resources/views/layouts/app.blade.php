@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <script src="https://code.jquery.com/j  query-3.6.0.min.js"></script>
+        <script src="{{ asset('jquery-3.7.1.js') }}"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+        <title>{{ config('app.name', 'Waste Info System') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -47,5 +47,7 @@
         @stack('modals')
 
         @livewireScripts
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
     </body>
 </html>

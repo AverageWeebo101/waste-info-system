@@ -49,7 +49,7 @@ class WasteController extends Controller
     {
         // Validate the request
         $request->validate([
-            'WasteID' => 'required|unique:waste,WasteID,' . $id, // Ignore the current record for uniqueness check
+            'WasteID' => 'required|unique:wastes,WasteID,' . $id, // Ignore the current record for uniqueness check
             'WasteName' => 'required',
             // Add more fields and rules as needed
         ]);

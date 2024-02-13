@@ -32,6 +32,9 @@ Route::get('/wastes', [WasteController::class, 'index'])->name('wastes.index');
 Route::get('/wastes/create', [WasteController::class, 'create'])->name('wastes.create');
 Route::resource('wastes', WasteController::class);
 Route::delete('/wastes/delete-selected', [WasteController::class, 'deleteSelected'])->name('wastes.deleteSelected');
+Route::delete('/wastes/{waste}', [WasteController::class, 'destroy'])->name('wastes.destroy');
+
+
 
 
     // Use Route::resource for standard CRUD routes
