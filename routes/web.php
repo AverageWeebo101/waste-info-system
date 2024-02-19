@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WasteController;
+use App\Http\Controllers\WasteLocationFacilityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,21 +29,23 @@ Route::middleware([
     })->name('dashboard');
 });
 
+//Waste Table
+
 Route::get('/wastes', [WasteController::class, 'index'])->name('wastes.index');
 Route::get('/wastes/create', [WasteController::class, 'create'])->name('wastes.create');
 Route::resource('wastes', WasteController::class);
 Route::delete('/wastes/delete-selected', [WasteController::class, 'deleteSelected'])->name('wastes.deleteSelected');
 Route::delete('/wastes/{waste}', [WasteController::class, 'destroy'])->name('wastes.destroy');
 
+// Waste Location Facility Table
 
-
-
-    // Use Route::resource for standard CRUD routes
-    // Route::resource('wastes', WasteController::class);
-
-    // Route::get('/wastes/create', [WasteController::class, 'create'])->name('wastes.create');
-
-    // Additional route for deleting selected records
-    //Route::delete('/wastes/delete-selected', [WasteController::class, 'deleteSelected'])->name('wastes.deleteSelected');
+Route::get('/wastes_location', [WasteLocationFacilityController::class, 'index'])->name('wastes_location.index');
+Route::get('/wastes_location/create', [WasteLocationFacilityController::class, 'create'])->name('wastes_location.create');
+Route::post('/wastes_location', [WasteLocationFacilityController::class, 'store'])->name('wastes_location.store');
+Route::get('/wastes_location/{id}', [WasteLocationFacilityController::class, 'show'])->name('wastes_location.show');
+Route::get('/wastes_location/{id}/edit', [WasteLocationFacilityController::class, 'edit'])->name('wastes_location.edit');
+Route::put('/wastes_location/{id}', [WasteLocationFacilityController::class, 'update'])->name('wastes_location.update');
+Route::delete('/wastes_location/{id}', [WasteLocationFacilityController::class, 'destroy'])->name('wastes_location.destroy');
+Route::delete('/wastes_location/deleteSelected', [WasteLocationFacilityController::class, 'deleteSelected'])->name('wastes_location.deleteSelected');
 
 ?>

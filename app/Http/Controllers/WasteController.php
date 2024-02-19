@@ -27,7 +27,7 @@ class WasteController extends Controller
             // Add more fields and rules as needed
         ]);
 
-        // Create a new waste record
+        // Create
         Waste::create($request->all());
 
         return redirect()->route('wastes.index')->with('success', 'Waste record created successfully!');
@@ -47,14 +47,14 @@ class WasteController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validate the request
+        // Validate
         $request->validate([
             'WasteID' => 'required|unique:wastes,WasteID,' . $id, // Ignore the current record for uniqueness check
             'WasteName' => 'required',
             // Add more fields and rules as needed
         ]);
 
-        // Update the waste record
+        // Update
         $waste = Waste::findOrFail($id);
         $waste->update($request->all());
 

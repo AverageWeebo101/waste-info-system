@@ -70,7 +70,7 @@
         </tbody>
     </table>
 
-    {{-- Include your JavaScript scripts at the end of the file --}}
+    {{-- Scripts Area --}}
     <script src="{{ asset('jquery-3.7.1.js') }}"></script>
     <script>
          var sortOrder = {};

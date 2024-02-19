@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        
+        <link rel="stylesheet" href="{{ asset('css/something.css') }}">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -48,6 +48,9 @@
 
         @livewireScripts
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
-
+        
+        <footer>
+        &copy; 2024 Waste Info System. All rights reserved.
+        </footer>
     </body>
 </html>
