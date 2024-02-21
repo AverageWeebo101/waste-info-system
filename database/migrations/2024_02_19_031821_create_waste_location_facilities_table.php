@@ -19,6 +19,10 @@ class CreateWasteLocationFacilitiesTable extends Migration
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
+
     public function down()
     {
         Schema::dropIfExists('waste_location_facilities');

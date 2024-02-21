@@ -22,9 +22,9 @@ class WasteController extends Controller
     {
         // Validate the request
         $request->validate([
-            'WasteID' => 'required|unique:wastes', // Add more validation rules as needed
+            'WasteID' => 'required|unique:wastes', 
             'WasteName' => 'required',
-            // Add more fields and rules as needed
+            
         ]);
 
         // Create

@@ -1,7 +1,5 @@
 <!-- Work in Progress -->
 
-<!-- resources/views/wastes/edit.blade.php -->
-
 @extends('layouts.app')
 
 @section('content')
@@ -35,6 +33,22 @@
             <label for="TimeCollected" class="form-label">Time Collected</label>
             <input type="datetime-local" class="form-control" id="TimeCollected" name="TimeCollected" value="{{ \Carbon\Carbon::parse($waste->TimeCollected)->format('Y-m-d\TH:i') }}" required>
         </div>
+
+        <div class="mb-3">
+            <label for="MassCollected" class="form-label">Mass Collected</label>
+            <input type="number" class="form-control" id="MassCollected" name="MassCollected" value ="{{ $waste-> MassCollected }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="AreaCollected" class="form-label">Area Collected</label>
+            <input type="text" class="form-control" id="AreaCollected" name="AreaCollected" value = "{{ $waste-> AreaCollected }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="DisposalLocation" class="form-label">Disposal Location</label>
+            <input type="text" class="form-control" id="DisposalLocation" name="DisposalLocation" value = "{{ $waste-> DisposalLocation }}" required>
+        </div>
+
         <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="Solid" name="Solid" value="1" {{ $waste->Solid ? 'checked' : '' }}>
             <label class="form-check-label" for="Solid">Solid</label>

@@ -1,5 +1,3 @@
-<!-- resources/views/wastes_location/edit.blade.php -->
-
 @extends('layouts.app')
 
 @section('content')

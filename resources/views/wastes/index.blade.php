@@ -75,7 +75,7 @@
     <script>
          var sortOrder = {};
 
-         // Sort table on header click
+         
         $('table th').on('click', function() {
             var column = $(this).data('sort');
             if (!sortOrder[column]) {
@@ -87,7 +87,7 @@
             sortTable(column, sortOrder[column]);
         });
 
-        // Sort table function
+        
         function sortTable(column, order) {
             var rows = $('table tbody tr').get();
 
@@ -107,7 +107,7 @@
             });
         }
 
-        // Get column index by name
+        
         function getColumnIndex(columnName) {
             var index = -1;
             $('table th').each(function(i) {
@@ -119,7 +119,7 @@
             return index;
         }
 
-        // Sort table function
+        
         function sortTable(column, order) {
             var rows = $('table tbody tr').get();
 
@@ -139,7 +139,7 @@
             });
         }
 
-        // Get column index by name
+        
         function getColumnIndex(columnName) {
             var index = -1;
             $('table th').each(function(i) {
@@ -151,7 +151,7 @@
             return index;
         }
 
-        // Delete selected records
+        //!!
         function deleteSelected() {
             var selectedIds = $('input[name="selected[]"]:checked').map(function(){
                 return $(this).val();
@@ -181,7 +181,7 @@
             }
         }
 
-        // Delete individual record
+        //!!
         function deleteRecord(WasteID) {
             if (confirm('Are you sure you want to delete this record?')) {
                 $.ajax({

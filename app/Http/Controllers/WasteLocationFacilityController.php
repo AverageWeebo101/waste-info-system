@@ -22,11 +22,11 @@ class WasteLocationFacilityController extends Controller
     {
         // Validate the request
         $request->validate([
-            'facility_id' => 'required|unique:waste_location_facilities', // Add more validation rules as needed
+            'facility_id' => 'required|unique:waste_location_facilities', 
             'facility_name' => 'required',
             'facility_address' => 'required',
             'facility_status' => 'required|in:Active,Under Maintenance,Under Renovation,Temporarily Closed,Permanently Closed,Demolished',
-            // Add more fields and rules as needed
+            
         ]);
 
         // Create
@@ -64,7 +64,7 @@ class WasteLocationFacilityController extends Controller
 
         return redirect()->route('wastes_location.index')->with('success', 'Location Facility record updated successfully!');
     }
-
+        // Delete !!
     public function destroy($id)
     {
         $facility = WasteLocationFacility::findOrFail($id);

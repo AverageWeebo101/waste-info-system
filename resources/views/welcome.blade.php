@@ -82,13 +82,13 @@
 <body>
 
     <header>
-        <img src="https://cdn.donmai.us/original/40/3d/__tanya_degurechaff_youjo_senki_drawn_by_genya_genya67__403d7345e61e014a8e4bb76481ec172d.png" alt="Waste Info System Logo" width="203.25" height="66.75">
+        <img src="https://cdn.donmai.us/original/40/3d/__tanya_degurechaff_youjo_senki_drawn_by_genya_genya67__403d7345e61e014a8e4bb76481ec172d.png" alt="Placeholder Image" width="203.25" height="66.75">
         <nav>
             <a href="/">Home</a>
             <a href="#">About</a>
             <a href="#">Public Database</a>
             <a href="/login">Admin</a>
-            <!-- Add more navigation links as needed -->
+            <!-- Navigation links -->
         </nav>
     </header>
 
@@ -112,7 +112,7 @@
             <p>Box 3 Text</p>
         </div>
 
-        <!-- Add more boxes as needed -->
+        <!-- Boxes -->
     </div>
 
     <footer>

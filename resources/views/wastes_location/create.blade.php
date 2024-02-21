@@ -1,5 +1,3 @@
-<!-- resources/views/wastes_location/create.blade.php -->
-
 @extends('layouts.app')
 
 @section('content')
@@ -45,8 +43,6 @@
                 <option value="Demolished">Demolished</option>
             </select>
         </div>
-
-        <!-- Add more fields as needed -->
 
         <button type="submit" class="btn btn-primary">Create Location Facility Record</button>
     </form>

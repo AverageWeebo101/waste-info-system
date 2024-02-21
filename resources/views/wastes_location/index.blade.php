@@ -26,7 +26,7 @@
             </tr>
         </thead>
         <tbody>
-            @forelse($facilities as $facility)
+        @forelse($facilities as $facility)
                 <tr>
                     <td><input type="checkbox" name="selected[]" value="{{ $facility->id }}"></td>
                     <td>{{ $facility->facility_id }}</td>
@@ -38,10 +38,10 @@
                     <td>
                         <a href="{{ route('wastes_location.show', $facility->id) }}" class="btn btn-info btn-sm">View</a>
                         <a href="{{ route('wastes_location.edit', $facility->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                        <button class="btn btn-danger btn-sm" onclick="deleteRecord({{ $facility->id }})">Delete</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteRecord({{ $facility->id }}, '{{ route('wastes_location.destroy', ['id' => $facility->id]) }}')">Delete</button>
                     </td>
                 </tr>
-            @empty
+        @empty
                 <tr>
                     <td colspan="6">No location facility records found.</td>
                 </tr>
@@ -57,7 +57,7 @@
             $('#facilityTable').DataTable();
         });
 
-        // Delete Selected 
+        //!!
         function deleteSelected() {
             var selectedIds = $('input[name="selected[]"]:checked').map(function(){
                 return $(this).val();
@@ -86,48 +86,28 @@
                 });
             }
         }
-        //Delete Individual
-            function deleteRecord(facilityId) {
-        if (confirm('Are you sure you want to delete this record?')) {
-            $.ajax({
-                url: '{{ route('wastes_location.destroy', ['id' => $facility->id]) }}',
-                type: 'DELETE',
-                data: {
-                    "_token": "{{ csrf_token() }}",
+        //!!
+        function deleteRecord(facilityId, deleteRoute) {
+            if (confirm('Are you sure you want to delete this record?')) {
+                $.ajax({
+                    url: deleteRoute.replace('{id}', facilityId),
+                     type: 'DELETE',
+                       headers: {
+                       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function(response) {
-                    console.log(response); 
-                    alert(response.message);
-                    location.reload();
-                },
-                error: function(xhr) {
-                    console.error(xhr); 
-                    alert('Error deleting the record.');
-                }
-            });
-        }
-    }
+                console.log(response);
+                console.log('Facility ID:', facilityId);
+                $('tr[data-id="' + facilityId + '"]').remove();
 
-        // Function to get status color class
-        @php
-            function getStatusColorClass($status) {
-                switch ($status) {
-                    case 'Active':
-                        return 'text-success';
-                    case 'Under Maintenance':
-                        return 'text-warning';
-                    case 'Under Renovation':
-                        return 'text-info';
-                    case 'Temporarily Closed':
-                        return 'text-secondary';
-                    case 'Permanently Closed':
-                        return 'text-danger';
-                    case 'Demolished':
-                        return 'text-dark';
-                    default:
-                        return '';
-                }
+                alert(response.message);
+            },
+            error: function(xhr) {
+                console.error(xhr);
+                alert('Error deleting the record.');
+                        }
+                });
             }
-        @endphp
+        }
     </script>
 @endsection
