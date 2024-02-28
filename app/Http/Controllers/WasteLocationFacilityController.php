@@ -51,11 +51,11 @@ class WasteLocationFacilityController extends Controller
     {
         // Validate
         $request->validate([
-            'facility_id' => 'required|unique:waste_location_facilities,facility_id,' . $id, // Ignore the current record for uniqueness check
+            'facility_id' => 'required|unique:waste_location_facilities,facility_id,' . $id, 
             'facility_name' => 'required',
             'facility_address' => 'required',
             'facility_status' => 'required|in:Active,Under Maintenance,Under Renovation,Temporarily Closed,Permanently Closed,Demolished',
-            // Add more fields and rules as needed
+            
         ]);
 
         // Update
@@ -70,6 +70,17 @@ class WasteLocationFacilityController extends Controller
         $facility = WasteLocationFacility::findOrFail($id);
         $facility->delete();
 
-        return redirect()->route('wastes_location.index')->with('success', 'Location Facility record deleted successfully!');
+        return response()->json(['message' => 'Location Facility record deleted successfully']);
     }
+
+    public function deleteSelected(Request $request)
+    {
+        $selectedIds = $request->selectedIds;
+
+        WasteLocationFacility::whereIn('id', $selectedIds)->delete();
+
+        return response()->json(['message' => 'Selected records deleted successfully']);
+    }
+
+    
 }

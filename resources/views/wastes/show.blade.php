@@ -1,7 +1,3 @@
-<!-- Work in Progress -->
-
-<!-- resources/views/wastes/show.blade.php -->
-
 @extends('layouts.app')
 
 @section('content')

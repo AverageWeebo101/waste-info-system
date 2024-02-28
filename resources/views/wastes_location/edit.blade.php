@@ -45,8 +45,6 @@
             </select>
         </div>
 
-        <!-- Add more fields as needed -->
-
         <button type="submit" class="btn btn-primary">Update Location Facility Record</button>
     </form>
 

@@ -57,7 +57,28 @@
             $('#facilityTable').DataTable();
         });
 
-        //!!
+        // Delete individual record
+        function deleteRecord(facilityId) {
+            if (confirm('Are you sure you want to delete this record?')) {
+                $.ajax({
+                    url: '/wastes_location/' + facilityId,
+                    type: 'DELETE', 
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                    },
+                    success: function(response) {
+                        alert(response.message);
+                        location.reload();
+                    },
+                    error: function(xhr) {
+                        alert('Error deleting the record.');
+                    }
+                });
+            }
+        }
+
+        // Delete selected records
+        
         function deleteSelected() {
             var selectedIds = $('input[name="selected[]"]:checked').map(function(){
                 return $(this).val();
@@ -71,11 +92,13 @@
             if (confirm('Are you sure you want to delete selected records?')) {
                 $.ajax({
                     url: '{{ route('wastes_location.deleteSelected') }}',
-                    type: 'DELETE',
-                    data: {
-                        "_token": "{{ csrf_token() }}",
-                        "selectedIds": selectedIds
+                    type: 'GET',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        selectedIds: selectedIds}),
                     success: function(response) {
                         alert(response.message);
                         location.reload();
@@ -83,29 +106,6 @@
                     error: function(xhr) {
                         alert('Error deleting selected records.');
                     }
-                });
-            }
-        }
-        //!!
-        function deleteRecord(facilityId, deleteRoute) {
-            if (confirm('Are you sure you want to delete this record?')) {
-                $.ajax({
-                    url: deleteRoute.replace('{id}', facilityId),
-                     type: 'DELETE',
-                       headers: {
-                       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function(response) {
-                console.log(response);
-                console.log('Facility ID:', facilityId);
-                $('tr[data-id="' + facilityId + '"]').remove();
-
-                alert(response.message);
-            },
-            error: function(xhr) {
-                console.error(xhr);
-                alert('Error deleting the record.');
-                        }
                 });
             }
         }

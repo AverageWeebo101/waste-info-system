@@ -1,5 +1,3 @@
-<!-- Work in Progress -->
-
 @extends('layouts.app')
 
 @section('content')

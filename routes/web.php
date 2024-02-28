@@ -45,7 +45,7 @@ Route::post('/wastes_location', [WasteLocationFacilityController::class, 'store'
 Route::get('/wastes_location/{id}', [WasteLocationFacilityController::class, 'show'])->name('wastes_location.show');
 Route::get('/wastes_location/{id}/edit', [WasteLocationFacilityController::class, 'edit'])->name('wastes_location.edit');
 Route::put('/wastes_location/{id}', [WasteLocationFacilityController::class, 'update'])->name('wastes_location.update');
-Route::delete('/wastes_location/{id}', [WasteLocationFacilityController::class, 'destroy'])->name('wastes_location.destroy');
-Route::delete('/wastes_location/deleteSelected', [WasteLocationFacilityController::class, 'deleteSelected'])->name('wastes_location.deleteSelected');
+Route::post('/wastes_location/{id}', [WasteLocationFacilityController::class, 'destroy'])->name('wastes_location.destroy');
+Route::get('/wastes_location/deleteSelected', [WasteLocationFacilityController::class, 'deleteSelected'])->name('wastes_location.deleteSelected');
 
 ?>
