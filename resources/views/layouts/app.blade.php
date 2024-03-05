@@ -10,7 +10,7 @@
         <script src="{{ asset('jquery-3.7.1.js') }}"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
-        <title>{{ config('app.name', 'Waste Info System') }}</title>
+        <title>{{ config('Waste Info System', 'Waste Info System') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -21,7 +21,29 @@
 
         <!-- Styles -->
         @livewireStyles
+        <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f8fafc;
+        }
 
+        .btn-blue {
+            background-color: #3490dc;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn-blue:hover,
+        .btn-blue:active {
+            background-color: #e3342f;
+        }
+    </style>
         
     </head>
     <body class="font-sans antialiased">

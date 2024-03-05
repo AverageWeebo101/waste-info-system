@@ -82,7 +82,7 @@
 <body>
 
     <header>
-        <img src="https://cdn.donmai.us/original/40/3d/__tanya_degurechaff_youjo_senki_drawn_by_genya_genya67__403d7345e61e014a8e4bb76481ec172d.png" alt="Placeholder Image" width="203.25" height="66.75">
+        <img src="{{ asset('images/ProjectLogo.png') }}" alt="Placeholder Image" width="50.8125" height="16.6875">
         <nav>
             <a href="/">Home</a>
             <a href="#">About</a>
@@ -93,22 +93,22 @@
     </header>
 
     <div class="banner">
-        <img src="https://www.interprint-services.co.uk/wp-content/uploads/2019/04/placeholder-banner.png" alt="Banner Image" width="1200" height="200">
+        <img src="{{ asset('images/banner1.jpg') }}" alt="Banner Image" width="1200" height="200">
     </div>
 
     <div class="container">
         <div class="box">
-            <img src="https://www.clipartmax.com/png/middle/298-2982472_placeholder-anime-things.png" alt="Image 1" width="300" height="200">
+            <img src="{{ asset('images/DSCF6040-scaled.jpg') }}" alt="Image 1" width="300" height="200">
             <p>Box 1 Text</p>
         </div>
 
         <div class="box">
-            <img src="https://www.clipartmax.com/png/middle/298-2982472_placeholder-anime-things.png" alt="Image 2" width="300" height="200">
+            <img src="{{ asset('images/image1.jpg') }}" alt="Image 2" width="300" height="200">
             <p>Box 2 Text</p>
         </div>
 
         <div class="box">
-            <img src="https://www.clipartmax.com/png/middle/298-2982472_placeholder-anime-things.png" alt="Image 3" width="300" height="200">
+            <img src="{{ asset('images/image3.jpg') }}" alt="Image 3" width="300" height="200">
             <p>Box 3 Text</p>
         </div>
 

@@ -96,7 +96,7 @@
             <label for="OtherDescription" class="form-label">Other Description</label>
             <input type="text" class="form-control" id="OtherDescription" name="OtherDescription" value="{{ $waste->OtherDescription }}">
         </div>
-        <button type="submit" class="btn btn-primary">Update Waste Record</button>
+        <button type="submit" class="btn-blue">Update Waste Record</button>
     </form>
 
     <a href="{{ route('wastes.index') }}" class="btn btn-secondary mt-3">Back to Waste Records</a>

@@ -107,9 +107,9 @@
             <input type="text" class="form-control" id="OtherDescription" name="OtherDescription">
         </div>
 
-        <!-- Add more fields as needed -->
+        
 
-        <button type="submit" class="btn btn-primary">Create Waste Record</button>
+        <button type="submit" class="btn-blue">Create Waste Record</button>
     
     </form>
     

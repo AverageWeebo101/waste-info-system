@@ -49,7 +49,7 @@ class WasteLocationFacilityController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validate
+
         $request->validate([
             'facility_id' => 'required|unique:waste_location_facilities,facility_id,' . $id, 
             'facility_name' => 'required',
@@ -58,13 +58,11 @@ class WasteLocationFacilityController extends Controller
             
         ]);
 
-        // Update
         $facility = WasteLocationFacility::findOrFail($id);
         $facility->update($request->all());
 
         return redirect()->route('wastes_location.index')->with('success', 'Location Facility record updated successfully!');
     }
-        // Delete !!
     public function destroy($id)
     {
         $facility = WasteLocationFacility::findOrFail($id);
@@ -73,14 +71,26 @@ class WasteLocationFacilityController extends Controller
         return response()->json(['message' => 'Location Facility record deleted successfully']);
     }
 
+
     public function deleteSelected(Request $request)
     {
         $selectedIds = $request->selectedIds;
-
-        WasteLocationFacility::whereIn('id', $selectedIds)->delete();
-
-        return response()->json(['message' => 'Selected records deleted successfully']);
-    }
-
     
+        if (!empty($selectedIds)) {
+            try {
+                WasteLocationFacility::destroy($selectedIds);
+                return response()->json(['message' => 'Selected records deleted successfully']);
+            } catch (\Exception $e) {
+                
+                return response()->json(['message' => 'Error deleting selected records'], 500);
+            }
+        }
+    
+        return response()->json(['message' => 'No records selected for deletion'], 422);
+    }
+    
+
+
+
+
 }

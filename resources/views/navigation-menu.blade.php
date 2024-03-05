@@ -6,7 +6,7 @@
                  <!-- Logo -->
             <div class="shrink-0 flex items-center">
                 <a href="{{ route('dashboard') }}">
-                    <img src="https://images.aicrowd.com/uploads/ckeditor/pictures/676/content_tis100-sad.gif" alt="Logo" class="block h-9 w-auto" />
+                    <img src="{{ asset('images/ProjectLogo.png') }}" alt="Logo" class="block h-9 w-auto" />
                 </a>
             </div>
 

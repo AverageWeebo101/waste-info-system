@@ -45,7 +45,7 @@
             </select>
         </div>
 
-        <button type="submit" class="btn btn-primary">Update Location Facility Record</button>
+        <button type="submit" class="btn-blue">Update Location Facility Record</button>
     </form>
 
     <div class="mt-3">
