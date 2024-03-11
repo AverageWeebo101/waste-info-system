@@ -11,6 +11,9 @@ class WasteLocationFacilityController extends Controller
     {
         $facilities = WasteLocationFacility::all();
         return view('wastes_location.index', compact('facilities'));
+
+        
+
     }
 
     public function create()

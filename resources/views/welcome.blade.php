@@ -99,20 +99,20 @@
     <div class="container">
         <div class="box">
             <img src="{{ asset('images/DSCF6040-scaled.jpg') }}" alt="Image 1" width="300" height="200">
-            <p>Box 1 Text</p>
+            <p>About Us</p>
         </div>
 
         <div class="box">
             <img src="{{ asset('images/image1.jpg') }}" alt="Image 2" width="300" height="200">
-            <p>Box 2 Text</p>
+            <p>Public Database</p>
         </div>
 
         <div class="box">
             <img src="{{ asset('images/image3.jpg') }}" alt="Image 3" width="300" height="200">
-            <p>Box 3 Text</p>
+            <p>Current and Future Projects</p>
         </div>
 
-        <!-- Boxes -->
+        
     </div>
 
     <footer>

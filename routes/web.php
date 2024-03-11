@@ -34,7 +34,7 @@ Route::middleware([
 Route::get('/wastes', [WasteController::class, 'index'])->name('wastes.index');
 Route::get('/wastes/create', [WasteController::class, 'create'])->name('wastes.create');
 Route::resource('wastes', WasteController::class);
-Route::delete('/wastes/{id}', [WasteController::class, 'destroy'])->name('wastes.destroy');
+Route::post('/wastes/{id}', [WasteController::class, 'destroy'])->name('wastes.destroy');
 Route::get('/wastes/delete-selected', [WasteController::class, 'deleteSelected'])->name('wastes.deleteSelected');
 
 
